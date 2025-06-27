@@ -1,142 +1,312 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Maju Ambulance Services</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      background: #fff;
-      color: #333;
-    }
-    header {
-      background: linear-gradient(to right, #ff4d6d, #ffb3c1);
-      color: white;
-      padding: 40px 20px;
-      text-align: center;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2.5em;
-    }
-    header p {
-      font-size: 1.2em;
-      margin-top: 10px;
-    }
-    .section {
-      padding: 40px 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-    .section h2 {
-      color: #ff4d6d;
-      margin-bottom: 10px;
-    }
-    ul {
-      list-style: none;
-      padding: 0;
-      line-height: 1.8;
-    }
-    .grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-    .grid > div {
-      flex: 1;
-      min-width: 280px;
-    }
-    footer {
-      background: #222;
-      color: white;
-      text-align: center;
-      padding: 20px;
-    }
-    .contact a {
-      color: #ff4d6d;
-      text-decoration: none;
-    }
-    .social-icons a {
-      margin: 0 10px;
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .whatsapp-button {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 12px 25px;
-      background: #25d366;
-      color: white;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maju Ambulance Services</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            color: #333;
+        }
+
+        header {
+            background-color: #ffc0cb; /* Light pink */
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+            color: #fff;
+        }
+
+        header nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .menu-toggle {
+            display: none;
+        }
+
+        .menu-icon {
+            display: none;
+            cursor: pointer;
+            font-size: 24px;
+            color: #fff;
+        }
+
+        .hero {
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            color: #ff69b4; /* Medium pink */
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            background-color: #ff69b4; /* Medium pink */
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin: 5px;
+        }
+
+        .services, .service-areas, .contact, .follow-us {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .services h2, .service-areas h2, .contact h2, .follow-us h2 {
+            color: #ff69b4; /* Medium pink */
+            margin-bottom: 20px;
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .service-card {
+            border: 1px solid #ff69b4; /* Medium pink */
+            padding: 20px;
+        }
+
+        .service-card img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .stats {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .stat-item {
+            flex: 1 1 150px;
+            padding: 10px;
+        }
+
+        .stat-item h3 {
+            color: #ff69b4; /* Medium pink */
+        }
+
+        .contact-card {
+            display: inline-block;
+            width: 250px;
+            margin: 10px;
+            vertical-align: top;
+        }
+
+        footer {
+            background-color: #ffc0cb; /* Light pink */
+            padding: 20px;
+            text-align: center;
+            color: #fff;
+        }
+
+        footer a {
+            color: #fff;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .menu-icon {
+                display: block;
+                position: absolute;
+                top: 15px;
+                right: 20px;
+            }
+
+            nav {
+                display: none;
+                width: 100%;
+                background-color: #ffc0cb; /* Light pink */
+            }
+
+            #menu-toggle:checked ~ nav {
+                display: block;
+            }
+
+            nav a {
+                display: block;
+                padding: 10px;
+                border-bottom: 1px solid #fff;
+            }
+
+            .hero {
+                padding: 30px 10px;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .services, .service-areas, .contact, .follow-us {
+                padding: 10px;
+            }
+
+            .stats {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                display: block;
+                width: 100%;
+                max-width: 200px;
+                margin: 10px auto;
+            }
+        }
+    </style>
 </head>
 <body>
+    <header>
+        <h1>Maju Ambulance</h1>
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <label for="menu-toggle" class="menu-icon">☰</label>
+        <nav>
+            <a href="#">Services</a>
+            <a href="#">Location</a>
+            <a href="#">Contact</a>
+            <a href="#">Follow Us</a>
+        </nav>
+        <p>016-6574651</p>
+    </header>
 
-  <header>
-    <h1>Maju Ambulance Services</h1>
-    <p>Your trusted 24/7 emergency and home care provider in Ipoh, Batu Gajah & Simpang Pulai</p>
-  </header>
+    <section class="hero">
+        <h1>Maju Ambulance Services</h1>
+        <p>Every second counts - Professional emergency care when you need it most</p>
+        <a href="#" class="btn">Emergency Call</a>
+        <a href="#" class="btn">WhatsApp</a>
+    </section>
 
-  <div class="section">
-    <h2>Our Services / Perkhidmatan Kami</h2>
-    <div class="grid">
-      <div>
+    <section class="stats">
+        <div class="stat-item">
+            <h3>24/7</h3>
+            <p>Emergency Service</p>
+        </div>
+        <div class="stat-item">
+            <h3>3</h3>
+            <p>Service Areas</p>
+        </div>
+        <div class="stat-item">
+            <h3>100%</h3>
+            <p>Professional Care</p>
+        </div>
+        <div class="stat-item">
+            <h3>Fast</h3>
+            <p>Response Time</p>
+        </div>
+    </section>
+
+    <section class="services">
+        <h2>Our Services</h2>
+        <p>Comprehensive medical services designed to meet your emergency and healthcare needs</p>
+        <div class="service-card">
+            <h3>Emergency Ambulance</h3>
+            <p>Fast and reliable emergency ambulance services with trained medical professionals and advanced life support equipment.</p>
+        </div>
+        <div class="service-card">
+            <h3>Patient Transfer</h3>
+            <p>Safe and comfortable patient transfer services for hospital discharge, appointments, and inter-facility transfers.</p>
+        </div>
+        <div class="service-card">
+            <h3>Wound Care</h3>
+            <p>Expert wound care services including diabetic wound management, bedsore treatment, and specialized dressing changes.</p>
+        </div>
+        <div class="service-card">
+            <h3>Medical Procedures</h3>
+            <p>Professional medical procedures including CBD insertion, Ryles tube placement, suction services, and other clinical procedures.</p>
+        </div>
+        <div class="service-card">
+            <h3>Equipment Rental</h3>
+            <p>Comprehensive medical equipment rental and sales including wheelchairs, hospital beds, and mobility aids.</p>
+        </div>
+        <div class="service-card">
+            <h3>Home Nursing</h3>
+            <p>Professional home nursing services and doctor visits providing quality healthcare in the comfort of your home.</p>
+        </div>
+        <div class="service-card">
+            <h3>Event Medical Team</h3>
+            <p>Dedicated medical support teams for events, functions, and gatherings ensuring safety and immediate medical response.</p>
+        </div>
+    </section>
+
+    <section class="service-areas">
+        <h2>Our Service Areas</h2>
+        <p>We proudly serve the following areas with our comprehensive ambulance and medical services. Our strategic location ensures rapid response times across all service zones.</p>
         <ul>
-          <li>🚑 Emergency Ambulance</li>
-          <li>🚗 Patient Transfer / Discharge / Appointments</li>
-          <li>🩹 Wound Care – Diabetic, Bedsore & more</li>
-          <li>🧪 Medical Procedure – CBD, Ryles Tube, Suction</li>
+            <li>Ipoh</li>
+            <li>Batu Gajah</li>
+            <li>Simpang Pulai</li>
         </ul>
-      </div>
-      <div>
-        <ul>
-          <li>🛒 Medical Equipment Rental / Purchase</li>
-          <li>🏠 Home Nursing & Doctor Visits</li>
-          <li>🎪 Medical Team for Events / Functions</li>
-        </ul>
-      </div>
-    </div>
-  </div>
+        <p>Fast Response Time | Strategic Coverage</p>
+    </section>
 
-  <div class="section">
-    <h2>Lokasi Kami</h2>
-    <p>Kami menyediakan perkhidmatan di kawasan berikut:</p>
-    <ul>
-      <li>📍 Ipoh</li>
-      <li>📍 Batu Gajah</li>
-      <li>📍 Simpang Pulai</li>
-    </ul>
-  </div>
+    <section class="contact">
+        <h2>Contact Us 24/7</h2>
+        <p>We're here for you around the clock. Get in touch for emergency services or general inquiries.</p>
+        <div class="contact-card">
+            <h3>Emergency Hotline</h3>
+            <p>Available 24/7 for emergencies</p>
+            <p>016-6574651</p>
+        </div>
+        <div class="contact-card">
+            <h3>Email Us</h3>
+            <p>For inquiries and appointments</p>
+            <p>majumedicareenterprise@gmail.com</p>
+        </div>
+        <div class="contact-card">
+            <h3>Visit Us</h3>
+            <p>Our main office location</p>
+            <p>3, Persiaran Bercham Utara 9, Taman Ramai, 31400 Ipoh, Perak, Malaysia</p>
+        </div>
+    </section>
 
-  <div class="section">
-    <h2>Hubungi Kami 24/7</h2>
-    <div class="contact">
-      <p>📞 <strong>Emergency Contact:</strong> <a href="tel:0166574651">016-6574651</a></p>
-      <p>📧 <strong>Email:</strong> <a href="mailto:majumedicareenterprise@gmail.com">majumedicareenterprise@gmail.com</a></p>
-      <a class="whatsapp-button" href="https://wa.me/60166574651" target="_blank">💬 WhatsApp Now</a>
-    </div>
-  </div>
+    <section class="follow-us">
+        <h2>Follow Us</h2>
+        <p>Stay connected with us on social media for updates and health tips</p>
+        <a href="#" class="btn">Facebook</a>
+        <a href="#" class="btn">Instagram</a>
+        <a href="#" class="btn">TikTok</a>
+    </section>
 
-  <div class="section">
-    <h2>Ikuti Kami</h2>
-    <div class="social-icons">
-      <a href="#">Facebook</a>
-      <a href="#">Instagram</a>
-      <a href="#">TikTok</a>
-      <a href="https://wa.me/60166574651">WhatsApp</a>
-    </div>
-    <p style="margin-top: 10px;">(Links can be updated anytime)</p>
-  </div>
-
-  <footer>
-    &copy; 2025 Maju Ambulance Services. All rights reserved.
-  </footer>
-
+    <footer>
+        <nav>
+            <a href="#">Services</a>
+            <a href="#">Location</a>
+            <a href="#">Contact</a>
+            <a href="#">Follow Us</a>
+        </nav>
+        <p>© 2025 Maju Ambulance Services. All rights reserved. | Professional Emergency Medical Services</p>
+    </footer>
 </body>
 </html>
